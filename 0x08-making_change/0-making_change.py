@@ -1,13 +1,22 @@
+#!/user/bin/python3
+"""making change module
+"""
+
+
 def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    table = [float('inf')] * (total+1)
-    table[0] = 0
+    coins.sort(reverse=True)
+    num_coins = 0
 
     for coin in coins:
-        for i in range(coin, total+1):
-            table[i] = min(table[i], table[i-coin]+1)
+        if coin > total:
+            continue
+        num_coins += total // coin
+        total = total % coin
+        if total == 0:
+            return num_coins
 
-    return table[total] if table[total] != float('inf') else -1
+    return -1
 
