@@ -15,28 +15,3 @@ def makeChange(coins, total):
             if coin <= x:
                 coin_arr[x] = min(coin_arr[x], 1 + coin_arr[x - coin])
     return coin_arr[total] if coin_arr[total] != float('inf') else -1
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-        
-
-
-
-
-
-    
-
